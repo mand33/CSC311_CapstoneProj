@@ -1,4 +1,4 @@
-Movie Review Application
+#Movie Diary Application
 A comprehensive platform designed to help users track, rate, and reflect on the films they have watched. This application bridges the gap between casual movie watchers and fanatics.
 Project Overview
 This repository contains both the frontend (JavaFX) and backend (Azure) code for the Movie Review Application:
