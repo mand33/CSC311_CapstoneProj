@@ -1,4 +1,4 @@
-package org.example.csc311_capstoneproj;
+package org.example.csc311_capstoneproj.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
