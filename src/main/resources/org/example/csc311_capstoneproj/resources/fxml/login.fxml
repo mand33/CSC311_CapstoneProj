@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="540.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc311_capstoneproj.controllers.LoginController">
    <children>
       <Label layoutX="20.0" layoutY="342.0" prefHeight="33.0" prefWidth="195.0" text="Login">
@@ -32,7 +31,7 @@
             <Font name="Elephant" size="13.0" />
          </font>
       </Label>
-      <TextField layoutX="436.0" layoutY="329.0" prefHeight="46.0" prefWidth="233.0" />
+      <TextField fx:id="emailTextField" layoutX="436.0" layoutY="329.0" prefHeight="46.0" prefWidth="233.0" />
       <Label layoutX="436.0" layoutY="315.0" text="Email">
          <font>
             <Font name="Elephant" size="12.0" />
@@ -51,8 +50,8 @@
             <Font name="Elephant" size="18.0" />
          </font>
       </Button>
-      <TextField layoutX="436.0" layoutY="398.0" prefHeight="46.0" prefWidth="233.0" />
-      <Label layoutX="436.0" layoutY="499.0" text="Don't have an account? Make one here!">
+      <TextField fx:id="passwordTextField" layoutX="436.0" layoutY="398.0" prefHeight="46.0" prefWidth="233.0" />
+      <Label fx:id="signUpLabel" layoutX="436.0" layoutY="499.0" onMouseClicked="#goToSignUp" text="Don't have an account? Make one here!">
          <font>
             <Font name="Elephant" size="12.0" />
          </font>
