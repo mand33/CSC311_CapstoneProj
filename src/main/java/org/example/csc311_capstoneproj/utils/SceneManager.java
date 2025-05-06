@@ -20,7 +20,7 @@ public class SceneManager {
      */
     public static void switchTo(String fxmlFile) {
         try {
-            FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/resources/fxml/" + fxmlFile));
+            FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/org/example/csc311_capstoneproj/fxml/" + fxmlFile));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
@@ -38,7 +38,7 @@ public class SceneManager {
      */
     public static <T> void switchToWithController(String fxmlFile, Consumer<T> controllerConsumer) {
         try {
-            FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/fxml/" + fxmlFile));
+            FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/org/example/csc311_capstoneproj/fxml/" + fxmlFile));
             Parent root = loader.load();
             T controller = loader.getController();
             controllerConsumer.accept(controller); // Pass the controller to the caller

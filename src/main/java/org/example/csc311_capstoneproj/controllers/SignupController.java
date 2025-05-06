@@ -1,5 +1,6 @@
 package org.example.csc311_capstoneproj.controllers;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -43,11 +44,14 @@ public class SignupController {
     String usernameRegex = "^[A-Za-z]{2,25}$";
     String emailRegex = "^[A-Za-z0-9._%+-]+@farmingdale\\.edu$";
     String dobRegex = "^(0[1-9]|1[0-2])/([0-2][0-9]|3[01])/\\d{4}$";
-    // TODO passwordregex
+    String passwordRegex = "^.{10,}$";
 
     public void initialize() {
         signUpButton.setDisable(true);
-        // TODO load stylesheet
+
+        Platform.runLater(() -> {
+            dobTextField.getScene().getStylesheets().add(getClass().getResource("/org/example/csc311_capstoneproj/fxml/css/style.css").toExternalForm());
+        });
 
         // Username
         usernameTextField.focusedProperty().addListener((obs, oldVal, newVal) -> {
@@ -67,7 +71,7 @@ public class SignupController {
                     isUsernameValid = false;
                     usernameMsg.setText("2–25 letters only");
                 }
-                // TODO checkAllValid;
+                checkAllValid();
             }
         });
 
@@ -89,7 +93,7 @@ public class SignupController {
                     isEmailValid = false;
                     emailMsg.setText("Must be @farmingdale.edu");
                 }
-//                checkAllValid;
+                checkAllValid();
             }
         });
 
@@ -111,9 +115,35 @@ public class SignupController {
                     isDobValid = false;
                     dobMsg.setText("Must be MM/DD/YYYY format");
                 }
-//                checkAllValid;
+                checkAllValid();
             }
         });
+
+        // Password
+        passwordTextField.focusedProperty().addListener((obs, oldVal, newVal) -> {
+            if (!newVal) { // focus lost
+                if (passwordTextField.getText().matches(passwordRegex)) {
+                    passwordTextField.getStyleClass().removeAll("invalid");
+                    if (!passwordTextField.getStyleClass().contains("valid")) {
+                        passwordTextField.getStyleClass().add("valid");
+                    }
+                    isPasswordValid = true;
+                    passwordMsg.setText("✓");
+                } else {
+                    passwordTextField.getStyleClass().removeAll("valid");
+                    if (!passwordTextField.getStyleClass().contains("invalid")) {
+                        passwordTextField.getStyleClass().add("invalid");
+                    }
+                    isPasswordValid = false;
+                    passwordMsg.setText("Must have at least 10 characters");
+                }
+                checkAllValid();
+            }
+        });
+    }
+
+    private void checkAllValid() {
+        signUpButton.setDisable(!(isUsernameValid && isEmailValid && isDobValid && isPasswordValid));
     }
 
 
