@@ -27,7 +27,7 @@ Backend
 Azure Functions for API endpoints
 Azure App Services for authentication
 Azure SQL Database/Cosmos DB for data storage
-TMDB API (v3) integration
+TMDB API (v3) integration (https://www.themoviedb.org)
 
 Development Tools
 
