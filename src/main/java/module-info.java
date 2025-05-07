@@ -1,6 +1,8 @@
 module org.example.csc311_capstoneproj {
     requires javafx.controls;
     requires javafx.fxml;
+    requires info.movito.themoviedbapi;
+    requires jdk.httpserver;
 
 
     opens org.example.csc311_capstoneproj to javafx.fxml;
