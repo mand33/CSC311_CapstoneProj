@@ -47,105 +47,105 @@ public class SignupController {
     String dobRegex = "^(0[1-9]|1[0-2])/([0-2][0-9]|3[01])/\\d{4}$";
     String passwordRegex = "^.{10,}$";
 
-//    public void initialize() {
-//        signUpButton.setDisable(true);
-//
-//        Platform.runLater(() -> {
-//            dobTextField.getScene().getStylesheets().add(getClass().getResource("/org/example/csc311_capstoneproj/fxml/css/style.css").toExternalForm());
-//        });
-//
-//        // Username
-//        usernameTextField.focusedProperty().addListener((obs, oldVal, newVal) -> {
-//            if (!newVal) { // focus lost
-//                if (usernameTextField.getText().matches(usernameRegex)) {
-//                    usernameTextField.getStyleClass().removeAll("invalid");
-//                    if (!usernameTextField.getStyleClass().contains("valid")) {
-//                        usernameTextField.getStyleClass().add("valid");
-//                    }
-//                    isUsernameValid = true;
-//                    usernameMsg.setText("✓");
-//                } else {
-//                    usernameTextField.getStyleClass().removeAll("valid");
-//                    if (!usernameTextField.getStyleClass().contains("invalid")) {
-//                        usernameTextField.getStyleClass().add("invalid");
-//                    }
-//                    isUsernameValid = false;
-//                    usernameMsg.setText("2–25 letters only");
-//                }
-//                checkAllValid();
-//            }
-//        });
-//
-//        // Email
-//        emailTextField.focusedProperty().addListener((obs, oldVal, newVal) -> {
-//            if (!newVal) {
-//                if (emailTextField.getText().matches(emailRegex)) {
-//                    emailTextField.getStyleClass().removeAll("invalid");
-//                    if (!emailTextField.getStyleClass().contains("valid")) {
-//                        emailTextField.getStyleClass().add("valid");
-//                    }
-//                    isEmailValid = true;
-//                    emailMsg.setText("✓");
-//                } else {
-//                    emailTextField.getStyleClass().removeAll("valid");
-//                    if (!emailTextField.getStyleClass().contains("invalid")) {
-//                        emailTextField.getStyleClass().add("invalid");
-//                    }
-//                    isEmailValid = false;
-//                    emailMsg.setText("Must be @farmingdale.edu");
-//                }
-//                checkAllValid();
-//            }
-//        });
-//
-//        // Date of Birth
-//        dobTextField.focusedProperty().addListener((obs, oldVal, newVal) -> {
-//            if (!newVal) {
-//                if (dobTextField.getText().matches(dobRegex)) {
-//                    dobTextField.getStyleClass().removeAll("invalid");
-//                    if (!dobTextField.getStyleClass().contains("valid")) {
-//                        dobTextField.getStyleClass().add("valid");
-//                    }
-//                    isDobValid = true;
-//                    dobMsg.setText("✓");
-//                } else {
-//                    dobTextField.getStyleClass().removeAll("valid");
-//                    if (!dobTextField.getStyleClass().contains("invalid")) {
-//                        dobTextField.getStyleClass().add("invalid");
-//                    }
-//                    isDobValid = false;
-//                    dobMsg.setText("Must be MM/DD/YYYY format");
-//                }
-//                checkAllValid();
-//            }
-//        });
-//
-//        // Password
-//        passwordTextField.focusedProperty().addListener((obs, oldVal, newVal) -> {
-//            if (!newVal) { // focus lost
-//                if (passwordTextField.getText().matches(passwordRegex)) {
-//                    passwordTextField.getStyleClass().removeAll("invalid");
-//                    if (!passwordTextField.getStyleClass().contains("valid")) {
-//                        passwordTextField.getStyleClass().add("valid");
-//                    }
-//                    isPasswordValid = true;
-//                    passwordMsg.setText("✓");
-//                } else {
-//                    passwordTextField.getStyleClass().removeAll("valid");
-//                    if (!passwordTextField.getStyleClass().contains("invalid")) {
-//                        passwordTextField.getStyleClass().add("invalid");
-//                    }
-//                    isPasswordValid = false;
-//                    passwordMsg.setText("Must have at least 10 characters");
-//                }
-//                checkAllValid();
-//            }
-//        });
-//    }
-//
-//    private void checkAllValid() {
-//        signUpButton.setDisable(!(isUsernameValid && isEmailValid && isDobValid && isPasswordValid));
-//    }
+    public void initialize() {
+        signUpButton.setDisable(true);
+
+        Platform.runLater(() -> {
+            dobTextField.getScene().getStylesheets().add(getClass().getResource("/org/example/csc311_capstoneproj/fxml/css/style.css").toExternalForm());
+        });
+
+        // Username
+        usernameTextField.focusedProperty().addListener((obs, oldVal, newVal) -> {
+            if (!newVal) { // focus lost
+                if (usernameTextField.getText().matches(usernameRegex)) {
+                    usernameTextField.getStyleClass().removeAll("invalid");
+                    if (!usernameTextField.getStyleClass().contains("valid")) {
+                        usernameTextField.getStyleClass().add("valid");
+                    }
+                    isUsernameValid = true;
+                    usernameMsg.setText("✓");
+                } else {
+                    usernameTextField.getStyleClass().removeAll("valid");
+                    if (!usernameTextField.getStyleClass().contains("invalid")) {
+                        usernameTextField.getStyleClass().add("invalid");
+                    }
+                    isUsernameValid = false;
+                    usernameMsg.setText("2–25 letters only");
+                }
+                checkAllValid();
+            }
+        });
+
+        // Email
+        emailTextField.focusedProperty().addListener((obs, oldVal, newVal) -> {
+            if (!newVal) {
+                if (emailTextField.getText().matches(emailRegex)) {
+                    emailTextField.getStyleClass().removeAll("invalid");
+                    if (!emailTextField.getStyleClass().contains("valid")) {
+                        emailTextField.getStyleClass().add("valid");
+                    }
+                    isEmailValid = true;
+                    emailMsg.setText("✓");
+                } else {
+                    emailTextField.getStyleClass().removeAll("valid");
+                    if (!emailTextField.getStyleClass().contains("invalid")) {
+                        emailTextField.getStyleClass().add("invalid");
+                    }
+                    isEmailValid = false;
+                    emailMsg.setText("Must be @farmingdale.edu");
+                }
+                checkAllValid();
+            }
+        });
+
+        // Date of Birth
+        dobTextField.focusedProperty().addListener((obs, oldVal, newVal) -> {
+            if (!newVal) {
+                if (dobTextField.getText().matches(dobRegex)) {
+                    dobTextField.getStyleClass().removeAll("invalid");
+                    if (!dobTextField.getStyleClass().contains("valid")) {
+                        dobTextField.getStyleClass().add("valid");
+                    }
+                    isDobValid = true;
+                    dobMsg.setText("✓");
+                } else {
+                    dobTextField.getStyleClass().removeAll("valid");
+                    if (!dobTextField.getStyleClass().contains("invalid")) {
+                        dobTextField.getStyleClass().add("invalid");
+                    }
+                    isDobValid = false;
+                    dobMsg.setText("Must be MM/DD/YYYY format");
+                }
+                checkAllValid();
+            }
+        });
+
+        // Password
+        passwordTextField.focusedProperty().addListener((obs, oldVal, newVal) -> {
+            if (!newVal) { // focus lost
+                if (passwordTextField.getText().matches(passwordRegex)) {
+                    passwordTextField.getStyleClass().removeAll("invalid");
+                    if (!passwordTextField.getStyleClass().contains("valid")) {
+                        passwordTextField.getStyleClass().add("valid");
+                    }
+                    isPasswordValid = true;
+                    passwordMsg.setText("✓");
+                } else {
+                    passwordTextField.getStyleClass().removeAll("valid");
+                    if (!passwordTextField.getStyleClass().contains("invalid")) {
+                        passwordTextField.getStyleClass().add("invalid");
+                    }
+                    isPasswordValid = false;
+                    passwordMsg.setText("Must have at least 10 characters");
+                }
+                checkAllValid();
+            }
+        });
+    }
+
+    private void checkAllValid() {
+        signUpButton.setDisable(!(isUsernameValid && isEmailValid && isDobValid && isPasswordValid));
+    }
 
 
     @FXML

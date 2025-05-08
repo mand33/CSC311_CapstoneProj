@@ -69,6 +69,7 @@ public class AddAMovieController {
 
     @FXML
     void reviewsScreen(ActionEvent event) {
+        SceneManager.switchTo("review.fxml");
 
     }
 
