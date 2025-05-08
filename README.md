@@ -1,4 +1,4 @@
-![MovieDiaryLogoedit](https://github.com/user-attachments/assets/4e188b9e-b6da-4f84-b3c4-73de1845f35a)
+![MovieDiaryLogoedit2](https://github.com/user-attachments/assets/a83b2270-85a1-4910-85b9-9acbdce0fc1c)
 
 Movie Diary Application
 
