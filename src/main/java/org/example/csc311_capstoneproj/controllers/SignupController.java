@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import org.example.csc311_capstoneproj.models.User;
 import org.example.csc311_capstoneproj.utils.SceneManager;
 
 public class SignupController {
@@ -36,6 +37,8 @@ public class SignupController {
 
     @FXML
     private TextField usernameTextField;
+
+    private static User signedUpUser;
 
     private boolean isUsernameValid = false;
     private boolean isEmailValid = false;
@@ -150,6 +153,20 @@ public class SignupController {
 
     @FXML
     void signUp(ActionEvent event) {
+
+        String username = usernameTextField.getText();
+        String email = emailTextField.getText();
+        String dob = dobTextField.getText();
+        String password = passwordTextField.getText();
+
+        if ( username.isEmpty() || email.isEmpty() || dob.isEmpty() || password.isEmpty() ) {
+            System.out.println("Please fill in all fields!");
+            return;
+        }
+
+        signedUpUser = new User(username, email, password, dob);
+        System.out.println("User signed up: " + username + " | " + email);
+
         SceneManager.switchTo("dashboard.fxml");
     }
 
