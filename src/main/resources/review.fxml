@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.csc311_capstoneproj.controllers.ReviewController"
+            prefWidth="600" prefHeight="400">
+
+    <children>
+        <!-- Main content -->
+        <VBox spacing="15" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+
+            <!-- Movie search -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Movie watched:"/>
+                <TextField fx:id="movieSearchField"
+                           promptText="Search..."
+                           HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- Star rating -->
+            <HBox spacing="5" alignment="CENTER_LEFT">
+                <ToggleButton fx:id="star1" text="☆" onAction="#onStarClicked"/>
+                <ToggleButton fx:id="star2" text="☆" onAction="#onStarClicked"/>
+                <ToggleButton fx:id="star3" text="☆" onAction="#onStarClicked"/>
+                <ToggleButton fx:id="star4" text="☆" onAction="#onStarClicked"/>
+                <ToggleButton fx:id="star5" text="☆" onAction="#onStarClicked"/>
+            </HBox>
+
+            <!-- Review text -->
+            <Label text="Review:"/>
+            <TextArea fx:id="reviewTextArea"
+                      wrapText="true"
+                      prefRowCount="6"/>
+        </VBox>
+
+        <!-- Buttons at bottom right -->
+        <HBox spacing="10"
+              AnchorPane.bottomAnchor="20"
+              AnchorPane.rightAnchor="20"
+              alignment="CENTER_RIGHT">
+            <Button text="Cancel"
+                    fx:id="cancelButton"
+                    onAction="#handleCancel"/>
+            <Button text="Apply"
+                    fx:id="applyButton"
+                    onAction="#handleSubmit"/>
+        </HBox>
+    </children>
+</AnchorPane>
