@@ -20,6 +20,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import org.example.csc311_capstoneproj.utils.SavedMoviesManager;
 import org.example.csc311_capstoneproj.utils.SceneManager;
 
 import java.util.List;
@@ -56,6 +57,7 @@ public class AddAMovieController {
 
     @FXML
     void libraryScreen(ActionEvent event) {
+        SceneManager.switchTo("library.fxml");
 
     }
 
@@ -132,7 +134,22 @@ public class AddAMovieController {
         title.setStyle("-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;");
         Label date = new Label("Release Date: " + movie.getReleaseDate());
         date.setStyle("-fx-text-fill: #cccccc;");
-        textBox.getChildren().addAll(title, date);
+
+        // Save to Library Button
+        Button saveButton = new Button("Save");
+        saveButton.setStyle("-fx-background-color: #ae6262; -fx-text-fill: #222430; -fx-cursor: hand; -fx-font-family: Segoe UI Light");
+
+        saveButton.setOnAction(e -> {
+            if (saveButton.getText().equals("Save")) {
+                SavedMoviesManager.getInstance().addMovie(movie);
+                saveButton.setText("Saved ✓");
+            } else {
+                SavedMoviesManager.getInstance().removeMovie(movie);
+                saveButton.setText("Save");
+            }
+        });
+
+        textBox.getChildren().addAll(title, date, saveButton);
 
         card.getChildren().addAll(poster, textBox);
         return card;

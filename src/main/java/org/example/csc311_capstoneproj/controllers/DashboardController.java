@@ -27,6 +27,7 @@ public class DashboardController {
 
     @FXML
     void libraryScreen(ActionEvent event) {
+        SceneManager.switchTo("library.fxml");
 
     }
 

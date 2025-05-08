@@ -9,10 +9,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="540.0" prefWidth="850.0" style="-fx-background-color: #7d81ab;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc311_capstoneproj.controllers.AddAMovieController">
+
+<AnchorPane prefHeight="540.0" prefWidth="850.0" style="-fx-background-color: #7d81ab;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc311_capstoneproj.controllers.LibraryController">
    <children>
       <HBox prefHeight="61.0" prefWidth="850.0" style="-fx-border-color: black;">
          <children>
@@ -21,7 +23,7 @@
                   <Image url="@images/MovieDiaryLogoedit.png" />
                </image>
             </ImageView>
-            <Label text="Add A Movie" textFill="#222430">
+            <Label text="Your Library" textFill="#222430">
                <HBox.margin>
                   <Insets left="280.0" top="15.0" />
                </HBox.margin>
@@ -34,27 +36,27 @@
                   <Font name="Segoe UI Light" size="18.0" />
                </font>
                <HBox.margin>
-                  <Insets left="290.0" top="10.0" />
+                  <Insets left="299.0" top="10.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
       <VBox layoutX="20.0" layoutY="76.0" prefHeight="213.0" prefWidth="280.0" style="-fx-background-color: #222430;">
          <children>
-            <Button fx:id="backtoDashButton" mnemonicParsing="false" onAction="#backToDash" prefHeight="39.0" prefWidth="195.0" style="-fx-background-color: #ae6262;" text="Go Back to Dashboard" textFill="#222430">
+            <Button fx:id="addAMovieButton" mnemonicParsing="false" onAction="#addAMovie" prefHeight="39.0" prefWidth="126.0" style="-fx-background-color: #ae6262;" text="Add A Movie" textFill="#222430">
                <font>
                   <Font name="Segoe UI Light" size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets left="48.0" top="30.0" />
+                  <Insets left="80.0" top="30.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="libraryButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#libraryScreen" prefHeight="39.0" prefWidth="126.0" style="-fx-background-color: #ae6262;" text="Library" textFill="#222430">
+            <Button fx:id="backToDash" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#goBackToDash" prefHeight="39.0" prefWidth="195.0" style="-fx-background-color: #ae6262;" text="Go Back to Dashboard" textFill="#222430">
                <font>
                   <Font name="Segoe UI Light" size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets left="80.0" top="15.0" />
+                  <Insets left="48.0" top="15.0" />
                </VBox.margin>
             </Button>
             <Button fx:id="reviewButton" layoutX="10.0" layoutY="49.0" mnemonicParsing="false" onAction="#reviewsScreen" prefWidth="126.0" style="-fx-background-color: #ae6262;" text="Your Reviews" textFill="#222430">
@@ -67,14 +69,14 @@
             </Button>
          </children>
       </VBox>
-      <ScrollPane fx:id="searchScrollPane" fitToWidth="true" layoutX="312.0" layoutY="128.0" prefHeight="407.0">
+      <ScrollPane fx:id="searchScrollPane" fitToWidth="true" layoutX="312.0" layoutY="125.0" prefHeight="407.0" prefWidth="530.0">
          <content>
-            <VBox fx:id="searchVBox" prefHeight="406.0" prefWidth="528.0" />
+            <TilePane fx:id="libTilePane" prefHeight="406.0" prefWidth="24.0" />
          </content>
       </ScrollPane>
-      <HBox layoutX="312.0" layoutY="78.0" prefHeight="50.0" prefWidth="530.0" style="-fx-background-color: #222430;">
+      <HBox layoutX="312.0" layoutY="76.0" prefHeight="50.0" prefWidth="530.0" style="-fx-background-color: #222430;">
          <children>
-            <TextField fx:id="searchTextField" onKeyPressed="#searchMovies" promptText="Search movies...">
+            <TextField fx:id="searchTextField" onKeyPressed="#searchMovies" promptText="Search your movies...">
                <font>
                   <Font name="Segoe UI Light" size="16.0" />
                </font>
