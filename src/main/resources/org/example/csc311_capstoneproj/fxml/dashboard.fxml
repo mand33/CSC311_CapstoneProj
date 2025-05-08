@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -9,7 +12,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="540.0" prefWidth="850.0" style="-fx-background-color: #7d81ab;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc311_capstoneproj.controllers.DashboardController">
    <children>
@@ -40,18 +42,18 @@
       </HBox>
       <HBox layoutX="325.0" layoutY="76.0" prefHeight="213.0" prefWidth="516.0" style="-fx-background-color: #222430;">
          <children>
-            <Label text="Your Movie Review Stats" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Light" size="16.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="165.0" top="170.0" />
-               </HBox.margin>
-            </Label>
+            <BarChart fx:id="barChart" horizontalGridLinesVisible="false" legendVisible="false" prefHeight="213.0" prefWidth="501.0" style="-fx-alternative-column-fill-visible: #ae6262;" verticalGridLinesVisible="false">
+              <xAxis>
+                <CategoryAxis label="     ★                                                                                                       ★★★★★" prefHeight="21.0" prefWidth="460.0" side="BOTTOM" style="-fx-background-color: #7d81ab;" tickLabelFill="WHITE" tickLabelsVisible="false" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis animated="false" opacity="0.0" side="LEFT" tickLabelsVisible="false" />
+              </yAxis>
+            </BarChart>
          </children>
       </HBox>
-      <HBox layoutX="14.0" layoutY="345.0" prefHeight="181.0" prefWidth="828.0" style="-fx-background-color: #222430;" />
-      <Label layoutX="14.0" layoutY="314.0" text="Your Recently Reviewed Movies" textFill="#222430">
+      <HBox fx:id="recentsHBox" layoutX="14.0" layoutY="345.0" prefHeight="181.0" prefWidth="828.0" style="-fx-background-color: #222430;" />
+      <Label layoutX="14.0" layoutY="314.0" text="Your Recently Added Movies" textFill="#222430">
          <font>
             <Font name="Segoe UI Light" size="16.0" />
          </font>
@@ -84,5 +86,10 @@
             </Button>
          </children>
       </VBox>
+      <Label layoutX="501.0" layoutY="289.0" text="Your Movie Review Stats" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
