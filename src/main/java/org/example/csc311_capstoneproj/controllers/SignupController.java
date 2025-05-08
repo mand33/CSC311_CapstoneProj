@@ -150,6 +150,9 @@ public class SignupController {
         signUpButton.setDisable(!(isUsernameValid && isEmailValid && isDobValid && isPasswordValid));
     }
 
+    public static User getSignedUpUser() {
+        return signedUpUser;
+    }
 
     @FXML
     void signUp(ActionEvent event) {
