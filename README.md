@@ -45,3 +45,12 @@ Development Tools:
 	IntelliJ IDEA
 
 	Git & GitHub for version control
+
+Icons from flaticon.com
+
+	https://www.flaticon.com/authors/chanut
+ 	https://www.flaticon.com/authors/inkubators
+  	https://www.flaticon.com/authors/pixel-perfect
+   	https://www.flaticon.com/authors/dmitri13
+    	https://www.flaticon.com/authors/rikas-dzihab
+ 
