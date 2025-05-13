@@ -37,6 +37,7 @@ public class LibraryController {
     private Button reviewButton;
 
     @FXML
+
     private ScrollPane searchScrollPane;
 
     @FXML
@@ -56,16 +57,21 @@ public class LibraryController {
     }
 
     @FXML
-    void logout(ActionEvent event) {
-        SceneManager.switchTo("login.fxml");
-
+    void reviewsScreen(ActionEvent event) {
+        SceneManager.switchTo("review.fxml");
     }
 
     @FXML
-    void reviewsScreen(ActionEvent event) {
-        SceneManager.switchTo("review.fxml");
-
+    void reportsScreen(ActionEvent event) {
+        // You will create reports.fxml later
+        SceneManager.switchTo("reports.fxml");
     }
+
+    @FXML
+    void logout(ActionEvent event) {
+        SceneManager.switchTo("login.fxml");
+    }
+
 
     @FXML
     void searchMovies(KeyEvent event) {
@@ -180,5 +186,4 @@ public class LibraryController {
         outerCard.setPadding(new Insets(10));
         return outerCard;
     }
-
 }

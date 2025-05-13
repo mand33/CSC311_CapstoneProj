@@ -54,7 +54,7 @@
             <Font name="Segoe UI Light" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="lgnButton" layoutX="518.0" layoutY="454.0" mnemonicParsing="false" text="Login">
+      <Button fx:id="lgnButton" layoutX="518.0" layoutY="454.0" mnemonicParsing="false" onAction="#login" text="Login">
          <font>
             <Font name="Segoe UI Light" size="18.0" />
          </font>
@@ -63,6 +63,11 @@
       <Label fx:id="signUpLabel" layoutX="436.0" layoutY="499.0" onMouseClicked="#goToSignUp" text="Don't have an account? Make one here!" textFill="#222430">
          <font>
             <Font name="Segoe UI Light Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="errorLabel" layoutX="450.0" layoutY="262.0" prefWidth="200.0" textFill="RED">
+         <font>
+            <Font size="14.0" />
          </font>
       </Label>
    </children>
