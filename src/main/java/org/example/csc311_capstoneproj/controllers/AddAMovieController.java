@@ -138,7 +138,7 @@ public class AddAMovieController {
 
         // Save to Library Button
         Button saveButton = new Button("Save");
-        saveButton.setStyle("-fx-background-color: #ae6262; -fx-text-fill: #222430; -fx-cursor: hand; -fx-font-family: Segoe UI Light");
+        saveButton.setStyle("-fx-background-color: #ae6262; -fx-text-fill: white; -fx-cursor: hand; -fx-font-family: Segoe UI Light");
 
         saveButton.setOnAction(e -> {
             if (saveButton.getText().equals("Save")) {

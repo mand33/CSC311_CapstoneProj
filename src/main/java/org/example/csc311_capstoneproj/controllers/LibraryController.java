@@ -109,7 +109,7 @@ public class LibraryController {
 
     private VBox createMovieCard(Movie movie) {
         Button reviewButton = new Button("Review");
-        reviewButton.setStyle("-fx-background-color: #ae6262; -fx-text-fill: #222430; -fx-cursor: hand; -fx-font-family: Segoe UI Light");
+        reviewButton.setStyle("-fx-background-color: #ae6262; -fx-text-fill: white; -fx-cursor: hand; -fx-font-family: Segoe UI Light");
         reviewButton.setOnAction(e -> {
             SceneManager.switchToWithController("review.fxml", (ReviewController controller) -> {
                 controller.setMovieForReview(movie);  // passing the selected movie

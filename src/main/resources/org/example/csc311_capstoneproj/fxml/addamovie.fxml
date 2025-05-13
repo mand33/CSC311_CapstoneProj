@@ -14,56 +14,84 @@
 
 <AnchorPane prefHeight="540.0" prefWidth="850.0" style="-fx-background-color: #7d81ab;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc311_capstoneproj.controllers.AddAMovieController">
    <children>
-      <HBox prefHeight="61.0" prefWidth="850.0" style="-fx-border-color: black;">
+      <HBox layoutY="-5.0" prefHeight="70.0" prefWidth="856.0" style="-fx-border-color: #222430; -fx-border-width: 6; -fx-border-radius: 6;">
          <children>
             <ImageView fitHeight="64.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/MovieDiaryLogoedit.png" />
                </image>
             </ImageView>
-            <Label text="Add A Movie" textFill="#222430">
+            <Label prefHeight="32.0" prefWidth="148.0" text="Add A Movie" textFill="WHITE">
                <HBox.margin>
                   <Insets left="280.0" top="15.0" />
                </HBox.margin>
                <font>
-                  <Font name="Segoe UI Light" size="22.0" />
+                  <Font name="Segoe UI Black" size="22.0" />
                </font>
             </Label>
-            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: #222430;" text="Logout" textFill="WHITE">
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: #222430; -fx-cursor: hand;" text="Logout" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Light" size="18.0" />
                </font>
                <HBox.margin>
-                  <Insets left="290.0" top="10.0" />
+                  <Insets left="226.0" top="10.0" />
                </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
       </HBox>
       <VBox layoutX="20.0" layoutY="76.0" prefHeight="213.0" prefWidth="280.0" style="-fx-background-color: #222430;">
          <children>
-            <Button fx:id="backtoDashButton" mnemonicParsing="false" onAction="#backToDash" prefHeight="39.0" prefWidth="195.0" style="-fx-background-color: #ae6262;" text="Go Back to Dashboard" textFill="#222430">
+            <Button fx:id="backtoDashButton" mnemonicParsing="false" onAction="#backToDash" prefHeight="54.0" prefWidth="247.0" style="-fx-background-color: #ae6262; -fx-cursor: hand;" text="Go Back to Dashboard" textFill="WHITE">
                <font>
-                  <Font name="Segoe UI Light" size="18.0" />
+                  <Font name="Segoe UI Semibold" size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets left="48.0" top="30.0" />
+                  <Insets left="20.0" top="10.0" />
                </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/dashboard.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="libraryButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#libraryScreen" prefHeight="39.0" prefWidth="126.0" style="-fx-background-color: #ae6262;" text="Library" textFill="#222430">
+            <Button fx:id="libraryButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#libraryScreen" prefHeight="54.0" prefWidth="126.0" style="-fx-background-color: #ae6262; -fx-cursor: hand;" text="Library" textFill="WHITE">
                <font>
-                  <Font name="Segoe UI Light" size="18.0" />
+                  <Font name="Segoe UI Semibold" size="18.0" />
                </font>
                <VBox.margin>
                   <Insets left="80.0" top="15.0" />
                </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/music-album.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="reviewButton" layoutX="10.0" layoutY="49.0" mnemonicParsing="false" onAction="#reviewsScreen" prefWidth="126.0" style="-fx-background-color: #ae6262;" text="Your Reviews" textFill="#222430">
+            <Button fx:id="reviewButton" layoutX="10.0" layoutY="49.0" mnemonicParsing="false" onAction="#reviewsScreen" prefHeight="54.0" prefWidth="178.0" style="-fx-background-color: #ae6262; -fx-cursor: hand;" text="Your Reviews" textFill="WHITE">
                <font>
-                  <Font name="Segoe UI Light" size="18.0" />
+                  <Font name="Segoe UI Semibold" size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets left="80.0" top="15.0" />
+                  <Insets left="55.0" top="15.0" />
                </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/review.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
       </VBox>
@@ -74,7 +102,7 @@
       </ScrollPane>
       <HBox layoutX="312.0" layoutY="78.0" prefHeight="50.0" prefWidth="530.0" style="-fx-background-color: #222430;">
          <children>
-            <TextField fx:id="searchTextField" onKeyPressed="#searchMovies" promptText="Search movies...">
+            <TextField fx:id="searchTextField" onKeyReleased="#searchMovies" promptText="Search movies..." style="-fx-cursor: hand;">
                <font>
                   <Font name="Segoe UI Light" size="16.0" />
                </font>
@@ -82,7 +110,25 @@
                   <Insets left="170.0" top="7.0" />
                </HBox.margin>
             </TextField>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/magnifying-glass.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
          </children>
       </HBox>
+      <ImageView fitHeight="39.0" fitWidth="51.0" layoutX="14.0" layoutY="489.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="74.0" layoutY="507.0" text="Movie Results from TMDB">
+         <font>
+            <Font name="Segoe UI Light" size="10.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -1,0 +1,13 @@
+.rounded-button {
+    -fx-border-radius: 20;
+    -fx-cursor: hand;
+}
+
+.rounded-button:hover {
+    -fx-background-color: #9b5555;
+}
+
+.rounded-button:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}

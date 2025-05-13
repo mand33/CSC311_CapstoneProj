@@ -79,7 +79,7 @@ public class DashboardController {
         VBox card = new VBox(10);
         card.setPadding(new Insets(10));
         card.setStyle("-fx-background-color: #222430; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 10, 0, 0, 4);");
-        card.setPrefWidth(180);
+        card.setPrefWidth(190);
         card.setPrefHeight(200);
 
         // Poster Image
