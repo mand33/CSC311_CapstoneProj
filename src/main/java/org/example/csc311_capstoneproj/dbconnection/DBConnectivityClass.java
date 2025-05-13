@@ -3,14 +3,32 @@ package org.example.csc311_capstoneproj.dbconnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.example.csc311_capstoneproj.models.User;
+import java.io.InputStream;
+import java.sql.*;
+import java.util.Properties;
 
 import java.sql.*;
 
 public class DBConnectivityClass {
-    final static String DB_NAME="MovieDiaryDB";
-    final static String DB_URL = "" +DB_NAME+ "?useSSL=true";  //Your DB info here
-    final static String USERNAME = "";
-    final static String PASSWORD = "";
+
+    private static String DB_URL;
+    private static String DB_USERNAME;
+    private static String DB_PASSWORD;
+
+    static {
+        try {
+            Properties props = new Properties();
+            InputStream input = DBConnectivityClass.class.getClassLoader().getResourceAsStream("dbconfig.properties");
+            props.load(input);
+
+            DB_URL = props.getProperty("db.url");
+            DB_USERNAME = props.getProperty("db.username");
+            DB_PASSWORD = props.getProperty("db.password");
+        } catch (Exception e) {
+            System.out.println("❌ Failed to load database properties.");
+            e.printStackTrace();
+        }
+    }
 
     public boolean connectToDatabase() {
         boolean hasRegistredUsers = false;
@@ -18,24 +36,20 @@ public class DBConnectivityClass {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            Statement statement = conn.createStatement();
-            statement.executeUpdate("CREATE DATABASE IF NOT EXISTS "+DB_NAME+"");
-            statement.close();
-            conn.close();
+            Connection conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+            System.out.println("✅ Connection to Azure MySQL SUCCESSFUL");
 
-            //Second, connect to the database and create the table "users" if cot created
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            statement = conn.createStatement();
-            String sql = "CREATE TABLE IF NOT EXISTS users (" + "id INT( 10 ) NOT NULL PRIMARY KEY AUTO_INCREMENT,"
-                    + "username VARCHAR(200) NOT NULL,"
-                    + "email VARCHAR(200) NOT NULL UNIQUE,"
-                    + "dob DATE)"
-                    + "password VARCHAR(200)";
-            statement.executeUpdate(sql);
+            Statement statement = conn.createStatement();
+            statement.execute("CREATE TABLE IF NOT EXISTS users (" +
+                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "username VARCHAR(200) NOT NULL, " +
+                    "email VARCHAR(200) NOT NULL UNIQUE, " +
+                    "dob DATE, " +
+                    "password VARCHAR(200))");
+
+
 
             //check if we have users in the table users
-            statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM users");
 
             if (resultSet.next()) {
@@ -49,9 +63,11 @@ public class DBConnectivityClass {
             conn.close();
 
         } catch (Exception e) {
+            System.out.println("❌ Connection to Azure MySQL FAILED");
             e.printStackTrace();
         }
 
         return hasRegistredUsers;
     }
+
 }
