@@ -9,6 +9,13 @@ import javafx.scene.control.TextField;
 import org.example.csc311_capstoneproj.models.User;
 import org.example.csc311_capstoneproj.utils.SceneManager;
 
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.Properties;
+import java.util.*;
+
 public class SignupController {
 
     @FXML
@@ -161,9 +168,48 @@ public class SignupController {
         String dob = dobTextField.getText();
         String password = passwordTextField.getText();
 
-        signedUpUser = new User(username, email, password, dob);
-        System.out.println("User signed up: " + username + " | " + email);
-
-        SceneManager.switchTo("dashboard.fxml");
+        if (registerUser(username, email, dob, password)) {
+            System.out.println("✅ User registered successfully!");
+            signedUpUser = new User(username, email, password, dob);
+            System.out.println("✅ User registered successfully!" + '\n' + "User signed up: " + username + " | " + email);
+            SceneManager.switchTo("dashboard.fxml");
+        } else {
+            System.out.println("❌ Registration failed. User may already exist or DB error occurred.");
+        }
     }
+
+
+    private boolean registerUser(String username, String email, String dob, String password) {
+        String insertSQL = "INSERT INTO users (username, email, dob, password) VALUES (?, ?, ?, ?)";
+
+        try {
+            Properties props = new Properties();
+            InputStream input = getClass().getClassLoader().getResourceAsStream("dbconfig.properties");
+            props.load(input);
+
+            String url = props.getProperty("db.url");
+            String dbUser = props.getProperty("db.username");
+            String dbPass = props.getProperty("db.password");
+
+            Connection conn = DriverManager.getConnection(url, dbUser, dbPass);
+            PreparedStatement stmt = conn.prepareStatement(insertSQL);
+
+            stmt.setString(1, username);
+            stmt.setString(2, email);
+            stmt.setString(3, dob);
+            stmt.setString(4, password);
+
+            int result = stmt.executeUpdate();
+
+            stmt.close();
+            conn.close();
+
+            return result > 0;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }
