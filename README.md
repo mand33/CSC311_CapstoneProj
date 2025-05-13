@@ -52,5 +52,5 @@ Icons from flaticon.com
  	https://www.flaticon.com/authors/inkubators
   	https://www.flaticon.com/authors/pixel-perfect
    	https://www.flaticon.com/authors/dmitri13
-    	https://www.flaticon.com/authors/rikas-dzihab
+	https://www.flaticon.com/authors/rikas-dzihab
  
