@@ -1,4 +1,4 @@
-package org.example.csc311_capstoneproj.utils;
+package org.example.csc311_capstoneproj.models;
 
 public class Review {
     private final String movieId;

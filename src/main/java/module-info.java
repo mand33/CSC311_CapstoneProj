@@ -3,6 +3,7 @@ module org.example.csc311_capstoneproj {
     requires javafx.fxml;
     requires info.movito.themoviedbapi;
     requires jdk.httpserver;
+    requires java.sql;
 
 
     opens org.example.csc311_capstoneproj to javafx.fxml;

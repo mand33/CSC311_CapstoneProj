@@ -3,6 +3,7 @@ package org.example.csc311_capstoneproj.utils;
 import java.util.*;
 
 import info.movito.themoviedbapi.model.core.Movie;
+import org.example.csc311_capstoneproj.models.Review;
 
 public class SavedMoviesManager {
     private static final SavedMoviesManager instance = new SavedMoviesManager();

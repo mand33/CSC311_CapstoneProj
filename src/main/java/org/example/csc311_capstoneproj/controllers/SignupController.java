@@ -156,21 +156,14 @@ public class SignupController {
 
     @FXML
     void signUp(ActionEvent event) {
-
         String username = usernameTextField.getText();
         String email = emailTextField.getText();
         String dob = dobTextField.getText();
         String password = passwordTextField.getText();
-
-        if ( username.isEmpty() || email.isEmpty() || dob.isEmpty() || password.isEmpty() ) {
-            System.out.println("Please fill in all fields!");
-            return;
-        }
 
         signedUpUser = new User(username, email, password, dob);
         System.out.println("User signed up: " + username + " | " + email);
 
         SceneManager.switchTo("dashboard.fxml");
     }
-
 }

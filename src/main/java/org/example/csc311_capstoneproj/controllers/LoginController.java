@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import org.example.csc311_capstoneproj.utils.SceneManager;
@@ -19,7 +20,7 @@ public class LoginController {
     private Button lgnButton;
 
     @FXML
-    private TextField passwordTextField;
+    private PasswordField passwordTextField;
 
     @FXML
     private Label signUpLabel;
@@ -29,7 +30,6 @@ public class LoginController {
 
     @FXML
     void goToSignUp(MouseEvent event) {
-
         SceneManager.switchTo("signup.fxml");
     }
 

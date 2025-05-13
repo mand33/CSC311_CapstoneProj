@@ -133,7 +133,7 @@ public class LibraryController {
 
         // Title and release date
         Label title = new Label(movie.getTitle());
-        title.setStyle("-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;");
+        title.setStyle("-fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;");
         Label date = new Label(movie.getReleaseDate());
         date.setStyle("-fx-text-fill: #cccccc;");
         VBox textBox = new VBox(5, title, date);
@@ -144,7 +144,7 @@ public class LibraryController {
         // Overview overlay
         Label overview = new Label(movie.getOverview());
         overview.setWrapText(true);
-        overview.setStyle("-fx-background-color:  #222430; -fx-text-fill: white; -fx-padding: 10; -fx-background-radius: 8;");
+        overview.setStyle("-fx-background-color:  #222430; -fx-text-fill: white; -fx-padding: 10; -fx-background-radius: 8; -fx-font-size: 10px");
         overview.setVisible(false);
         overview.setOpacity(0);
         overview.setMaxWidth(120);

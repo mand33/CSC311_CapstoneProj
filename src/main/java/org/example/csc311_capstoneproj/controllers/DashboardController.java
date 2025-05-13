@@ -15,7 +15,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.example.csc311_capstoneproj.utils.SavedMoviesManager;
 import org.example.csc311_capstoneproj.utils.SceneManager;
-import org.example.csc311_capstoneproj.utils.Review;
+import org.example.csc311_capstoneproj.models.Review;
 
 import java.util.HashMap;
 import java.util.List;
