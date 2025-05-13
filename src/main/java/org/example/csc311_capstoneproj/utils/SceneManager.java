@@ -3,6 +3,7 @@ package org.example.csc311_capstoneproj.utils;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -23,6 +24,8 @@ public class SceneManager {
             FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/org/example/csc311_capstoneproj/fxml/" + fxmlFile));
             Parent root = loader.load();
             Scene scene = new Scene(root);
+            Image appIcon = new Image(SceneManager.class.getResourceAsStream("/org/example/csc311_capstoneproj/fxml/images/MovieDiaryLogoIcon.png"));
+            primaryStage.getIcons().add(appIcon);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
@@ -41,8 +44,10 @@ public class SceneManager {
             FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/org/example/csc311_capstoneproj/fxml/" + fxmlFile));
             Parent root = loader.load();
             T controller = loader.getController();
-            controllerConsumer.accept(controller); // Pass the controller to the caller
+            controllerConsumer.accept(controller);
             Scene scene = new Scene(root);
+            Image appIcon = new Image(SceneManager.class.getResourceAsStream("/org/example/csc311_capstoneproj/fxml/images/MovieDiaryLogoIcon.png"));
+            primaryStage.getIcons().add(appIcon);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {

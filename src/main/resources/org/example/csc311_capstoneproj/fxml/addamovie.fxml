@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="540.0" prefWidth="850.0" style="-fx-background-color: #7d81ab;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc311_capstoneproj.controllers.AddAMovieController">
    <children>
       <HBox prefHeight="61.0" prefWidth="850.0" style="-fx-border-color: black;">
@@ -68,9 +67,9 @@
             </Button>
          </children>
       </VBox>
-      <ScrollPane layoutX="312.0" layoutY="128.0" prefHeight="407.0" prefWidth="530.0">
+      <ScrollPane fx:id="searchScrollPane" fitToWidth="true" layoutX="312.0" layoutY="128.0" prefHeight="407.0">
          <content>
-            <VBox prefHeight="406.0" prefWidth="528.0" />
+            <VBox fx:id="searchVBox" prefHeight="406.0" prefWidth="528.0" />
          </content>
       </ScrollPane>
       <HBox layoutX="312.0" layoutY="78.0" prefHeight="50.0" prefWidth="530.0" style="-fx-background-color: #222430;">

@@ -2,20 +2,21 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="540.0" prefWidth="850.0" style="-fx-background-color: #7d81ab;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc311_capstoneproj.controllers.LibraryController">
+<AnchorPane prefHeight="540.0" prefWidth="850.0" style="-fx-background-color: #7d81ab;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc311_capstoneproj.controllers.ReviewController">
    <children>
+      <HBox layoutX="315.0" layoutY="76.0" prefHeight="464.0" prefWidth="528.0" style="-fx-background-color: #222430;" />
       <HBox prefHeight="61.0" prefWidth="850.0" style="-fx-border-color: black;">
          <children>
             <ImageView fitHeight="64.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
@@ -23,7 +24,7 @@
                   <Image url="@images/MovieDiaryLogoedit.png" />
                </image>
             </ImageView>
-            <Label text="Your Library" textFill="#222430">
+            <Label prefHeight="32.0" prefWidth="130.0" text="Your Reviews" textFill="#222430">
                <HBox.margin>
                   <Insets left="280.0" top="15.0" />
                </HBox.margin>
@@ -36,7 +37,7 @@
                   <Font name="Segoe UI Light" size="18.0" />
                </font>
                <HBox.margin>
-                  <Insets left="299.0" top="10.0" />
+                  <Insets left="281.0" top="10.0" />
                </HBox.margin>
             </Button>
          </children>
@@ -51,15 +52,7 @@
                   <Insets left="80.0" top="30.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="backToDash" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#goBackToDash" prefHeight="39.0" prefWidth="195.0" style="-fx-background-color: #ae6262;" text="Go Back to Dashboard" textFill="#222430">
-               <font>
-                  <Font name="Segoe UI Light" size="18.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="48.0" top="15.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="reviewButton" layoutX="10.0" layoutY="49.0" mnemonicParsing="false" onAction="#reviewsScreen" prefWidth="126.0" style="-fx-background-color: #ae6262;" text="Your Reviews" textFill="#222430">
+            <Button fx:id="libraryButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#goToLibrary" prefHeight="39.0" prefWidth="126.0" style="-fx-background-color: #ae6262;" text="Library" textFill="#222430">
                <font>
                   <Font name="Segoe UI Light" size="18.0" />
                </font>
@@ -67,24 +60,27 @@
                   <Insets left="80.0" top="15.0" />
                </VBox.margin>
             </Button>
+            <Button fx:id="backToDashButton" layoutX="10.0" layoutY="49.0" mnemonicParsing="false" onAction="#backToDash" prefHeight="39.0" prefWidth="195.0" style="-fx-background-color: #ae6262;" text="Go Back to Dashboard" textFill="#222430">
+               <font>
+                  <Font name="Segoe UI Light" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="48.0" top="15.0" />
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
-      <ScrollPane fx:id="searchScrollPane" fitToWidth="true" layoutX="312.0" layoutY="125.0" prefHeight="407.0" prefWidth="530.0">
+      <TextArea fx:id="reviewInput" layoutX="315.0" layoutY="76.0" prefHeight="106.0" prefWidth="528.0" />
+      <ScrollPane fx:id="reviewScrollPane" layoutX="315.0" layoutY="214.0" prefHeight="325.0" prefWidth="528.0">
          <content>
-            <TilePane fx:id="libTilePane" prefHeight="406.0" prefWidth="24.0" />
+            <VBox fx:id="reviewList" prefHeight="324.0" prefWidth="528.0" />
          </content>
       </ScrollPane>
-      <HBox layoutX="312.0" layoutY="76.0" prefHeight="50.0" prefWidth="530.0" style="-fx-background-color: #222430;">
-         <children>
-            <TextField fx:id="searchTextField" onKeyReleased="#searchMovies" promptText="Search your movies...">
-               <font>
-                  <Font name="Segoe UI Light" size="16.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="170.0" top="7.0" />
-               </HBox.margin>
-            </TextField>
-         </children>
-      </HBox>
+      <Button fx:id="submitButton" layoutX="775.0" layoutY="183.0" mnemonicParsing="false" onAction="#submitReview" prefHeight="4.0" prefWidth="53.0" style="-fx-background-color: #ae6262;" text="Submit" textFill="#222430">
+         <font>
+            <Font name="Segoe UI Light" size="12.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="ratingComboBox" layoutX="618.0" layoutY="183.0" prefWidth="150.0" promptText="Select Star Rating" style="-fx-background-color: #ae6262;" visibleRowCount="5" />
    </children>
 </AnchorPane>
