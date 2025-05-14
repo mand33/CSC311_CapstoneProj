@@ -40,24 +40,6 @@ public class LoginController {
         SceneManager.switchTo("signup.fxml");
     }
 
-    @FXML
-    void login(ActionEvent event) {
-        String enteredEmail = emailTextField.getText();
-        String enteredPassword = passwordTextField.getText();
-
-        User signedUpUser = SignupController.getSignedUpUser(); // Get the signed-up user
-
-        if (signedUpUser != null && enteredEmail.equals(signedUpUser.getEmail()) && enteredPassword.equals(signedUpUser.getPassword())) {
-            // Successful login
-            System.out.println("Login successful!");
-            errorLabel.setText("");  // Clear any previous error
-            SceneManager.switchTo("dashboard.fxml");
-        } else {
-            // Invalid login
-            System.out.println("Invalid login attempt.");
-            errorLabel.setText("Invalid email or password.");
-        }
-    }
 
     @FXML
     void loginButtonClicked(ActionEvent event) {
@@ -66,9 +48,11 @@ public class LoginController {
 
         if (validateLogin(email, password)) {
             System.out.println("✅ Login successful");
+            errorLabel.setText("");
             SceneManager.switchTo("dashboard.fxml");
         } else {
             System.out.println("❌ Login failed: incorrect email or password.");
+            errorLabel.setText("❌ Login failed: incorrect email or password.");
         }
     }
 

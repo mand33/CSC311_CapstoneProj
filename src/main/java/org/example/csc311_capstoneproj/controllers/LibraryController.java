@@ -108,6 +108,7 @@ public class LibraryController {
     }
 
     private VBox createMovieCard(Movie movie) {
+        // Review Button
         Button reviewButton = new Button("Review");
         reviewButton.setStyle("-fx-background-color: #ae6262; -fx-text-fill: white; -fx-cursor: hand; -fx-font-family: Segoe UI Light");
         reviewButton.setOnAction(e -> {
@@ -184,6 +185,17 @@ public class LibraryController {
 
         VBox outerCard = new VBox(stack);
         outerCard.setPadding(new Insets(10));
+
+        // Delete Button
+        Button deleteBtn = new Button("Delete");
+        deleteBtn.setStyle("-fx-background-color: #ae6262; -fx-text-fill: white; -fx-cursor: hand; -fx-font-family: Segoe UI Light");
+        deleteBtn.setOnAction(e -> {
+            SavedMoviesManager.getInstance().removeMovie(movie);
+            libTilePane.getChildren().remove(outerCard);
+        });
+
+        contentBox.getChildren().add(deleteBtn);
+
         return outerCard;
     }
 }
